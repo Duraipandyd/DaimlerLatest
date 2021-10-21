@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Customs Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    <link rel="apple-touch-icon" href="~/pages/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/pages/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/pages/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/pages/ico/152.png">
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <link href="~/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/assets/plugins/nvd3/nv.d3.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/assets/plugins/mapplic/css/mapplic.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/rickshaw/rickshaw.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="~/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="~/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/assets/css/dashboard.widgets.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="~/pages/css/pages-icons.css" rel="stylesheet" type="text/css">
+    <link class="main-stylesheet" href="~/pages/css/themes/modern.css" rel="stylesheet" type="text/css" />
+    <link class="main-stylesheet" href="~/assets/css/style.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body class="fixed-header horizontal-menu horizontal-app-menu dashboard">
+
+    <!-- START PAGE-CONTAINER -->
+    <div class="header p-r-0 bg-primary">
+        <div class="header-inner header-md-height">
+            <a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-menu text-white" data-toggle="horizontal-menu"></a>
+            <div class="">
+                <div class="brand inline no-border hidden-xs-down">
+                    <img src="/assets/img/img-logo-daimler-svg.svg" alt="logo" data-src="/assets/img/img-logo-daimler-svg.svg" data-src-retina="/assets/img/img-logo-daimler-svg.svg" width="78" height="22">
+                    <!-- <span class="bold text-white">Customs Portal</span>-->
+                </div>
+                <!-- START NOTIFICATION LIST -->
+                <!-- END NOTIFICATIONS LIST -->
+
+            </div>
+            <div class="d-flex align-items-center">
+                <!-- START User Info-->
+                <div class="pull-left p-r-10 fs-14 font-heading hidden-md-down text-white">
+                    <span class="semi-bold">Admin</span> <span class=""></span>
+                </div>
+                <div class="dropdown pull-right">
+                    <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="thumbnail-wrapper d32 circular inline sm-m-r-5">
+                            <img src="/assets/img/profiles/avatar.jpg" alt="" data-src="/assets/img/profiles/avatar.jpg" data-src-retina="/assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right profile-dropdown" role="menu">
+                        <a href="profile" class="dropdown-item"><i class="pg-settings_small"></i> Profile</a>
+                        <a href="manageusers" class="dropdown-item"><i class="pg-settings_small"></i> Users</a>
+                        <a href="help" class="dropdown-item"><i class="pg-signals"></i> Help</a>
+                        <a href="login" class="clearfix bg-master-lighter dropdown-item">
+                            <span class="pull-left"> Logout </span>
+                            <span class="pull-right"><i class="pg-power"></i></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- END User Info-->
+
+            </div>
+        </div>
+        <div class="bg-white">
+            <div class="container">
+                <div class="menu-bar header-sm-height" data-pages-init='horizontal-menu' data-hide-extra-li="4" id="menu">
+                    <a href="#" class="btn-link toggle-sidebar hidden-lg-up pg pg-close" data-toggle="horizontal-menu">
+                    </a>
+                     
+                        <ul>
+                            <li class="" id="Dashboard">
+                                <a asp-page="Dashboard">Dashboard</a>
+                            </li>
+                            <li class="" id="DutyPaymentRequest">
+                                <a asp-page="DutyPaymentRequest"><span class="title">Duty Payment Request</span></a>
+                            </li>
+                            <li class="" id="Uploadisc">
+                                <a asp-page="Uploadisc"><span class="title">ISC</span></a>
+                            </li>
+                            <li class="" id="Uploadidt">
+                                <a asp-page="Uploadidt"><span class="title">IDT</span></a>
+                            </li>
+                            <li class="" id="ArchiveRecords">
+                                <a asp-page="ArchiveRecords"><span class="title">Archive</span></a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:;">
+                                    <span class="title">Reports</span>
+                                    <span class=" arrow"></span>
+                                </a>
+                                <ul class="" style="margin-top: -1px">
+                                    <li class="">
+                                        <a asp-page="Reports">Customs Report</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    
+                        <a href="#" class="search-link d-flex justify-content-between align-items-center hidden-lg-up" data-toggle="search">Tap here to search <i class="pg-search float-right"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    @RenderBody()
+    <script src="~/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/modernizr.custom.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/tether/js/tether.min.js" type="text/javascript"></script>
+    <script src="~/assets/js/jquery_validate.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-actual/jquery.actual.min.js"></script>
+    <script src="~/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/classie/classie.js"></script>
+    <script src="assets/plugins/switchery/js/switchery.min.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp" type="text/javascript"></script>
+    <script src="~/assets/plugins/nvd3/lib/d3.v3.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/nvd3/nv.d3.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/nvd3/src/utils.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/nvd3/src/tooltip.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/nvd3/src/interactiveLayer.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/nvd3/src/models/axis.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/nvd3/src/models/line.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/nvd3/src/models/lineWithFocusChart.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/mapplic/js/hammer.js"></script>
+    <script src="~/assets/plugins/mapplic/js/jquery.mousewheel.js"></script>
+    <script src="~/assets/plugins/mapplic/js/mapplic.js"></script>
+    <script src="~/assets/plugins/rickshaw/rickshaw.min.js"></script>
+    <script src="~/assets/plugins/jquery-metrojs/MetroJs.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/skycons/skycons.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/moment/moment.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-datatable/media/js/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/datatables-responsive/js/lodash.min.js"></script>
+    <script src="~/assets/js/canvasjs.min.js"></script>
+    <!-- END VENDOR JS -->
+    <!-- BEGIN CORE TEMPLATE JS -->
+    <script src="pages/js/pages.min.js"></script>
+    <!-- END CORE TEMPLATE JS -->
+    <!-- BEGIN PAGE LEVEL JS -->
+    <script src="assets/js/dashboard.js" type="text/javascript"></script>
+    <script src="assets/js/scripts.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL JS -->
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+    <script>
+        //$(document).ready(function() {
+        var ctx = $("#chart-idt");
+        var myLineChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ["Inprogress", "Completed"],
+                datasets: [{
+                    data: [1200, 1700],
+                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)"]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    //text: 'IDT Records'
+                }
+            }
+        });
+        //});
+    </script>
+
+    <script>
+        //$(document).ready(function() {
+        var ctx = $("#chart-isc");
+        var myLineChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ["Inprogress", "Completed"],
+                datasets: [{
+                    data: [1200, 17000],
+                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)"]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    //text: 'ISC Records'
+                }
+            }
+        });
+                    //});
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+@*<body>
+    <header>
+        
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Daimler - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>*@
+</html>

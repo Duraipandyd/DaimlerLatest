@@ -1,0 +1,513 @@
+﻿@page
+@model Dashboard
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    window.onload = function () {
+        removeClass()
+    }
+    function removeClass() {
+        document.getElementById("Dashboard").classList.add("active");
+        document.getElementById("duty_payment_request").classList.remove("active");
+        document.getElementById("uploadisc").classList.remove("active");
+        document.getElementById("uploadidt").classList.remove("active");
+        document.getElementById("archive_records").classList.remove("active");        
+}
+</script>
+
+<div class="page-container">
+    <!-- START PAGE CONTENT WRAPPER -->
+    <div class="page-content-wrapper ">
+        <!-- START PAGE CONTENT -->
+        <div class="content sm-gutter">
+            <!-- START BREADCRUMBS -->
+            <div class="bg-white">
+                <div class="container">
+                    <ol class="breadcrumb breadcrumb-alt">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- END BREADCRUMBS -->
+            <!-- START CONTAINER FLUID -->
+
+            <div class="container sm-padding-10 p-t-20 p-l-0 p-r-0 customdashboard ">
+
+
+
+
+                <div class="row p-l-20">
+
+
+                    <div class="col-lg-4">
+                        <div class="card no-border widget-loader-bar m-b-10">
+                            <div class="container-xs-height full-height">
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="card-header  top-left top-right">
+                                            <div class="card-title">
+                                                <span class="font-montserrat fs-11 all-caps">
+                                                    Duty Payment Request  <i class="fa fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                            <div class="card-controls">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                                            <h3 class="no-margin p-b-5 f-s-50  text-info">@Model.dashboardCounts.DutyPaymentRequest</h3>
+                                            <span class="small hint-text pull-left">TOTAL</span>
+                                            <!-- <span class="pull-right small text-danger">$23,000</span> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-50 p-t-50 p-b-40 p-r-20s">
+                                            <h3 class="no-margin p-b-5 f-s-40  text-success pull-right">@Model.dashboardCounts.DutyPaymentRequestInProgress</h3>
+                                            <span class="small hint-text pull-left p-l-30 ">Inprogress</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-10s">
+                                            <h3 class="no-margin p-b-5 f-s-40  text-danger ">@Model.dashboardCounts.DutyPaymentRequestComplete</h3>
+                                            <span class="small hint-text pull-rights p-r-30 ">Archived</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-bottom">
+                                        <div class="progress progress-small m-b-0">
+                                            <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                            <div class="progress-bar progress-bar-info" style="width:50%"></div>
+                                            <!-- END BOOTSTRAP PROGRESS -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="col-lg-4">
+                        <div class="card no-border widget-loader-bar m-b-10">
+                            <div class="container-xs-height full-height">
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="card-header  top-left top-right">
+                                            <div class="card-title">
+                                                <span class="font-montserrat fs-11 all-caps">
+                                                    ISC  <i class="fa fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                            <div class="card-controls">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                                            <h3 class="no-margin p-b-5 f-s-50  text-info">@Model.dashboardCounts.ISC</h3>
+                                            <span class="small hint-text pull-left">TOTAL</span>
+                                            <!-- <span class="pull-right small text-danger">$23,000</span> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-50 p-t-50 p-b-40 p-r-20s">
+                                            <h3 class="no-margin p-b-5 f-s-40  text-success pull-right">@Model.dashboardCounts.ISCInProgress</h3>
+                                            <span class="small hint-text pull-left p-l-30 ">Inprogress</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-10s">
+                                            <h3 class="no-margin p-b-5 f-s-40  text-danger ">@Model.dashboardCounts.ISCComplete</h3>
+                                            <span class="small hint-text pull-rights p-r-30 ">Completed</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-bottom">
+                                        <div class="progress progress-small m-b-0">
+                                            <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                            <div class="progress-bar progress-bar-info" style="width:15%"></div>
+                                            <!-- END BOOTSTRAP PROGRESS -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card no-border widget-loader-bar m-b-10">
+                            <div class="container-xs-height full-height">
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="card-header  top-left top-right">
+                                            <div class="card-title">
+                                                <span class="font-montserrat fs-11 all-caps">
+                                                    IDT   <i class="fa fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                            <div class="card-controls">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                                            <h3 class="no-margin p-b-5 f-s-50  text-info">@Model.dashboardCounts.IDT</h3>
+                                            <span class="small hint-text pull-left">TOTAL</span>
+                                            <!-- <span class="pull-right small text-danger">$23,000</span> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-50 p-t-50 p-b-40 p-r-20s">
+                                            <h3 class="no-margin p-b-5 f-s-40  text-success pull-right">@Model.dashboardCounts.IDTInprogress</h3>
+                                            <span class="small hint-text pull-left p-l-30 ">Inprogress</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-10s">
+                                            <h3 class="no-margin p-b-5 f-s-40  text-danger ">@Model.dashboardCounts.IDTComplete</h3>
+                                            <span class="small hint-text pull-rights p-r-30 ">Completed</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-bottom">
+                                        <div class="progress progress-small m-b-0">
+                                            <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                            <div class="progress-bar progress-bar-success" style="width:15%"></div>
+                                            <!-- END BOOTSTRAP PROGRESS -->
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <div class="row p-l-20">
+                    <div class="col-lg-8 sm-m-t-10 d-flex">
+                        <!-- START WIDGET widget_pendingComments.tpl-->
+                        <div class="widget-11-2 card no-border card-condensed no-margin widget-loader-circle d-flex flex-column align-self-stretch">
+                            <div class="card-header top-right">
+                                <div class="card-controls">
+                                    <ul>
+                                        <li>
+                                            <a data-toggle="refresh" class="portlet-refresh text-black" href="#">
+                                                <i class="portlet-icon portlet-icon-refresh"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 class="m-l-15"> <b>Reminders</b></h3>
+
+                            <table class="table table-condensed table-hover" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 5%;">#</th>
+                                        <th style="width: 20%;">Reminder Date</th>
+                                        <th style="width: 15%;">Team</th>
+                                        <th style="width: 22%;">DPR No</th>
+                                        <th style="width: 15%;">BOE No</th>
+                                        <th style="width: 30%;">Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        @*@foreach (var item in Model.dutyPaymentRequestHeaders)
+                                        {*@
+                                            <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">1</a></td>
+                                            <td class="b-r b-dashed b-grey w-25">14 Apr 2021</td>
+                                            <td class="b-r b-dashed b-grey w-25">ISC</td>
+                                            <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">SMP 21-22 0171</a></td>
+                                            <td class="b-r b-dashed b-grey w-25">1234567</td>
+                                            <td class="w-25"><span class="text-danger">Records Pending </span></td>
+                                        @*}*@
+                                        </tr>
+                                    @*<tr>
+                                        <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">2</a></td>
+                                        <td class="b-r b-dashed b-grey w-25">10 Oct 2021</td>
+                                        <td class="b-r b-dashed b-grey w-25">ISC</td>
+                                        <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">ASP 21-22 0082</a></td>
+                                        <td class="b-r b-dashed b-grey w-25">1345678</td>
+                                        <td class="w-25"><span class="text-danger">Records Pending </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">3</a></td>
+                                        <td class="b-r b-dashed b-grey w-25">01 May 2021</td>
+                                        <td class="b-r b-dashed b-grey w-25">IDT</td>
+                                        <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">ANP 21-22 0020</a></td>
+                                        <td class="b-r b-dashed b-grey w-25">2345678</td>
+                                        <td class="w-25"><span class="text-complete">Duty Amount Mismatch</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">4</a></td>
+                                        <td class="b-r b-dashed b-grey w-25">15 Jan 2022</td>
+                                        <td class="b-r b-dashed b-grey w-25">IDT</td>
+                                        <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">AMI 21-22 0455</a></td>
+                                        <td class="b-r b-dashed b-grey w-25">4567890</td>
+                                        <td class="w-25"><span class="text-danger">Records Pending </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">5</a></td>
+                                        <td class="b-r b-dashed b-grey w-25">02 Feb 2021</td>
+                                        <td class="b-r b-dashed b-grey w-25">ISC</td>
+                                        <td class="font-montserrat all-caps fs-12 w-50"><a href="BE_records.html">AMI 21-22 0456</a></td>
+                                        <td class="b-r b-dashed b-grey w-25">9999999</td>
+                                        <td class="w-25"><span class="text-complete">Duty Amount Mismatch</span></td>
+                                    </tr>*@
+
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                        <!-- END WIDGET -->
+                    </div>
+
+                    <div class="col-lg-4  sm-m-t-10">
+                        <!--<div id="chartContainer" class="pb-4" style="height: 300px; width: 100%;"></div>-->
+
+
+
+
+                        <div class="card ">
+                            <div class="card-header"><h4><b>ISC Records</b></h4></div>
+                            <div class="card-body" style="height:300px;">
+                                <canvas id="chart-isc" width="299" height="200" class="chartjs-render-monitor" style="display: block; width: 299px; height: 200px;"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header"><h4><b>IDT Records</b></h4></div>
+                            <div class="card-body" style="height:300px;">
+                                <canvas id="chart-idt" width="299" height="200" class="chartjs-render-monitor" style="display: block; width: 299px; height: 200px;"></canvas>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- START ROW -->
+                <!-- START ROW -->
+            </div>
+
+            <!-- END CONTAINER FLUID -->
+        </div>
+        <br>
+        <br>
+        <!-- END PAGE CONTENT -->
+        <!-- START COPYRIGHT -->
+        <!-- START CONTAINER FLUID -->
+        <!-- START CONTAINER FLUID -->
+        <div class=" container   container-fixed-lg footer">
+            <div class="copyright sm-text-center">
+                <p class="small no-margin pull-left sm-pull-reset">
+                    <span class="hint-text">Copyright Reserved © 2020-2025. </span>
+
+                </p>
+                <p class="small no-margin pull-right sm-pull-reset">
+                    Developed by <span class="hint-text">Zealoit Technologies</span>
+                </p>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- END COPYRIGHT -->
+    </div>
+    <!-- END PAGE CONTENT WRAPPER -->
+</div>
+<!-- END PAGE CONTAINER -->
+<!-- START OVERLAY -->
+<div class="overlay hide" data-pages="search">
+    <!-- BEGIN Overlay Content !-->
+    <div class="overlay-content has-results m-t-20">
+        <!-- BEGIN Overlay Header !-->
+        <div class="container-fluid">
+            <!-- BEGIN Overlay Logo !-->
+            <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+            <!-- END Overlay Logo !-->
+            <!-- BEGIN Overlay Close !-->
+            <a href="#" class="close-icon-light overlay-close text-black fs-16">
+                <i class="pg-close"></i>
+            </a>
+            <!-- END Overlay Close !-->
+        </div>
+        <!-- END Overlay Header !-->
+        <div class="container-fluid">
+            <!-- BEGIN Overlay Controls !-->
+            <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
+            <br>
+            <div class="inline-block">
+                <div class="checkbox right">
+                    <input id="checkboxn" type="checkbox" value="1" checked="checked">
+                    <label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
+                </div>
+            </div>
+            <div class="inline-block m-l-10">
+                <p class="fs-13">Press enter to search</p>
+            </div>
+            <!-- END Overlay Controls !-->
+        </div>
+        <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
+        <div class="container-fluid">
+            <span>
+                <strong>suggestions :</strong>
+            </span>
+            <span id="overlay-suggestions"></span>
+            <br>
+            <div class="search-results m-t-40">
+                <p class="bold">Pages Search Results</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div>
+                                    <img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on pages</h5>
+                                <p class="hint-text">via john smith</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div>T</div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> related topics</h5>
+                                <p class="hint-text">via pages</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div>
+                                    <i class="fa fa-headphones large-text "></i>
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> music</h5>
+                                <p class="hint-text">via pagesmix</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
+                                <div>
+                                    <i class="fa fa-facebook large-text "></i>
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on facebook</h5>
+                                <p class="hint-text">via facebook</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
+                                <div>
+                                    <i class="fa fa-twitter large-text "></i>
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
+                                <p class="hint-text">via twitter</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
+                                <div>
+                                    <i class="fa fa-google-plus large-text "></i>
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
+                                <p class="hint-text">via google plus</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Overlay Search Results !-->
+    </div>
+    <!-- END Overlay Content !-->
+</div>
+<!-- END OVERLAY -->
+<!-- BEGIN VENDOR JS -->

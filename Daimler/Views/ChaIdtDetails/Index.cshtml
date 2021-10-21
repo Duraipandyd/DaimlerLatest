@@ -1,0 +1,426 @@
+﻿@model IEnumerable<Daimler.Models.ChaIdtDetail>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Boeid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bedate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalnvoiceValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalInoviceCurrency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalFreightValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalFreightCurrency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalInsValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalInsCurrency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiscCharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceMiscCurrency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExchangeRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomTariffHeading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CentralExciseTariffHeading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitofProductQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Freight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Insurance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cifvalue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BasicDutyRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BasicDuty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddlDutyExciseDutyRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddlDutyExciseDutyAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddlDutySubSec5Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddlDutySubSec5Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationCessRateExcise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationCessAmountExcise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryhigherEducationCessRateExcise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryhigherEducationCessAmountExcise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialWelfareSurchargeRateCustoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialWelfareSurchargeAmountCustoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryhigherEducationCessRateCustoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondaryhigherEducationCessAmountCustoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssessableValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAssessable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalBasicDuty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSurcharge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCvd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalEducationCess)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalEducationCessExcise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSocialWelfareSurchargeCustoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSechigherEducationCess)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSechigherEducationCessExcise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSechigherEducationCessCustoms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAdditonalDutySubSec5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalDuty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SplExciseDutySchedIiRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SplExciseDutySchedIiAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CessdutyRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cessduty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeofTransport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Consignor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Igstrate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Igstamount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sadrate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sadamount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalSad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boeid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Beno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bedate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalnvoiceValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalInoviceCurrency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalFreightValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalFreightCurrency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalInsValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalInsCurrency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiscCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceMiscCurrency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExchangeRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomTariffHeading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CentralExciseTariffHeading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitofProductQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Insurance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cifvalue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicDutyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicDuty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddlDutyExciseDutyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddlDutyExciseDutyAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddlDutySubSec5Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddlDutySubSec5Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationCessRateExcise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationCessAmountExcise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondaryhigherEducationCessRateExcise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondaryhigherEducationCessAmountExcise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialWelfareSurchargeRateCustoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialWelfareSurchargeAmountCustoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondaryhigherEducationCessRateCustoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondaryhigherEducationCessAmountCustoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssessableValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAssessable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalBasicDuty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSurcharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCvd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalEducationCess)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalEducationCessExcise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSocialWelfareSurchargeCustoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSechigherEducationCess)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSechigherEducationCessExcise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSechigherEducationCessCustoms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAdditonalDutySubSec5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDuty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SplExciseDutySchedIiRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SplExciseDutySchedIiAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CessdutyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cessduty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeofTransport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Consignor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Igstrate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Igstamount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sadrate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sadamount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalSad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxCode)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

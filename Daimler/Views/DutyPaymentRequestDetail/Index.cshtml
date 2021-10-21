@@ -1,0 +1,144 @@
+﻿@model IEnumerable<Daimler.Models.DutyPaymentRequestDetail>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LineId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DutyValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvoiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boeno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PortCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Boeduty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Penalty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Interest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdtExcelAttachmentId1Navigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdtExcelAttachmentId2Navigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdtExcelAttachmentId3Navigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdtExcelAttachmentId4Navigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdtExcelAttachmentId5Navigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdtPdfAttachment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IscExcelAttachment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IscPdfAttachment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LineId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DutyValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boeno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Boeduty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Penalty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Header.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdtExcelAttachmentId1Navigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdtExcelAttachmentId2Navigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdtExcelAttachmentId3Navigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdtExcelAttachmentId4Navigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdtExcelAttachmentId5Navigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdtPdfAttachment.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IscExcelAttachment.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IscPdfAttachment.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

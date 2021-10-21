@@ -1,0 +1,125 @@
+﻿@model Daimler.Models.DutyPaymentRequestDetail
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>DutyPaymentRequestDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="HeaderId" class="control-label"></label>
+                <select asp-for="HeaderId" class="form-control" asp-items="ViewBag.HeaderId"></select>
+                <span asp-validation-for="HeaderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LineId" class="control-label"></label>
+                <input asp-for="LineId" class="form-control" />
+                <span asp-validation-for="LineId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DutyValue" class="control-label"></label>
+                <input asp-for="DutyValue" class="form-control" />
+                <span asp-validation-for="DutyValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefNo" class="control-label"></label>
+                <input asp-for="RefNo" class="form-control" />
+                <span asp-validation-for="RefNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InvoiceNo" class="control-label"></label>
+                <input asp-for="InvoiceNo" class="form-control" />
+                <span asp-validation-for="InvoiceNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Boeno" class="control-label"></label>
+                <input asp-for="Boeno" class="form-control" />
+                <span asp-validation-for="Boeno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PortCode" class="control-label"></label>
+                <input asp-for="PortCode" class="form-control" />
+                <span asp-validation-for="PortCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Boeduty" class="control-label"></label>
+                <input asp-for="Boeduty" class="form-control" />
+                <span asp-validation-for="Boeduty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fine" class="control-label"></label>
+                <input asp-for="Fine" class="form-control" />
+                <span asp-validation-for="Fine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Penalty" class="control-label"></label>
+                <input asp-for="Penalty" class="form-control" />
+                <span asp-validation-for="Penalty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Interest" class="control-label"></label>
+                <input asp-for="Interest" class="form-control" />
+                <span asp-validation-for="Interest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IscExcelAttachmentId" class="control-label"></label>
+                <select asp-for="IscExcelAttachmentId" class="form-control" asp-items="ViewBag.IscExcelAttachmentId"></select>
+                <span asp-validation-for="IscExcelAttachmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IscPdfAttachmentId" class="control-label"></label>
+                <select asp-for="IscPdfAttachmentId" class="form-control" asp-items="ViewBag.IscPdfAttachmentId"></select>
+                <span asp-validation-for="IscPdfAttachmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdtPdfAttachmentId" class="control-label"></label>
+                <select asp-for="IdtPdfAttachmentId" class="form-control" asp-items="ViewBag.IdtPdfAttachmentId"></select>
+                <span asp-validation-for="IdtPdfAttachmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdtExcelAttachmentId1" class="control-label"></label>
+                <select asp-for="IdtExcelAttachmentId1" class="form-control" asp-items="ViewBag.IdtExcelAttachmentId1"></select>
+                <span asp-validation-for="IdtExcelAttachmentId1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdtExcelAttachmentId2" class="control-label"></label>
+                <select asp-for="IdtExcelAttachmentId2" class="form-control" asp-items="ViewBag.IdtExcelAttachmentId2"></select>
+                <span asp-validation-for="IdtExcelAttachmentId2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdtExcelAttachmentId3" class="control-label"></label>
+                <select asp-for="IdtExcelAttachmentId3" class="form-control" asp-items="ViewBag.IdtExcelAttachmentId3"></select>
+                <span asp-validation-for="IdtExcelAttachmentId3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdtExcelAttachmentId4" class="control-label"></label>
+                <select asp-for="IdtExcelAttachmentId4" class="form-control" asp-items="ViewBag.IdtExcelAttachmentId4"></select>
+                <span asp-validation-for="IdtExcelAttachmentId4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdtExcelAttachmentId5" class="control-label"></label>
+                <select asp-for="IdtExcelAttachmentId5" class="form-control" asp-items="ViewBag.IdtExcelAttachmentId5"></select>
+                <span asp-validation-for="IdtExcelAttachmentId5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

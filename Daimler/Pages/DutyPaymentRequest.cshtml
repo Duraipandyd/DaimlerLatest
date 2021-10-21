@@ -1,0 +1,247 @@
+﻿@page
+@model Daimler.Pages.DutyPaymentRequest
+
+@{
+    ViewData["Title"] = "Duty Payment Request";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+    <script type="text/javascript">
+    debugger;
+    window.onload = function () {
+        removeClass()
+    }
+    function removeClass() {
+        document.getElementById("Dashboard").classList.remove("active");
+        document.getElementById("duty_payment_request").classList.add("active");
+        document.getElementById("uploadisc").classList.remove("active");
+        document.getElementById("uploadidt").classList.remove("active");
+        document.getElementById("archive_records").classList.remove("active");
+    }
+
+    function deletedutypayment (id)
+    {
+        if (confirm("Are you sure you want to delete ...?")) {
+            $.ajax({
+                            type: 'GET',
+                            datatype: "json",
+                            traditional: true,
+            data: { 'id': JSON.stringify(id) },
+            url: '@Url.Page("DutyPaymentRequest", "detele", null)',
+            success: function (result) {
+                alert("Delete  Duty Payment Request !");
+                location.reload();
+                oTable = $('#manageusers').DataTable();
+                oTable.draw(); 
+            },
+            error: function (errormessage) {
+                alert("Something Went Wrong!");
+            }
+        });
+        }
+        else {
+            return false;
+        }
+
+
+    }
+    </script>
+<style>
+
+
+    .btn_cols {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+</style>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+<div class="page-container ">
+    <!-- START PAGE CONTENT WRAPPER -->
+    <div class="page-content-wrapper ">
+        <!-- START PAGE CONTENT -->
+        <div class="content sm-gutter">
+            <!-- START BREADCRUMBS -->
+            <div class="bg-white">
+                <div class="container">
+                    <ol class="breadcrumb breadcrumb-alt">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Duty Payment Request</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- END BREADCRUMBS -->
+            <!-- START CONTAINER FLUID -->
+
+            <div class="container sm-padding-10 p-t-20 p-l-0 p-r-0 customdashboard">
+
+                <div class="row p-l-20">
+                    <div class="col-lg-12 sm-m-t-10 d-flex">
+                        <!-- START WIDGET widget_pendingComments.tpl-->
+                        <div class="widget-11-2 card no-border card-condensed no-margin widget-loader-circle d-flex flex-column align-self-stretch">
+                            <div class="card-header top-right">
+                                <div class="card-controls">
+                                    <ul>
+                                        <li>
+                                            <a data-toggle="refresh" class="portlet-refresh text-black" href="#">
+                                                <i class="portlet-icon portlet-icon-refresh"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="auto-overflows " style="margin-top:10px;margin-left:10px;">
+                                    <div class="row">
+
+                                        @*<div class="col-lg-8 mx-auto py-3 sm-m-t-10 customfileupload sm-m-t-20  ">
+                <div class="alert alert-success alert-dismissible successmsg">
+                    <a href="#" class="close" data-dismiss="alert"></a>
+                    <strong>Success!</strong> File Uploaded Successfully
+                </div>
+                <div class="alert alert-danger alert-dismissible errormsg">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Failed!</strong> Invalid File format
+                </div>
+
+                <div class="drag-area pb-4">
+                    <div class="icon"><i class="fa fa-cloud-upload"></i></div>
+                    <header>Drag & Drop to Upload Duty Payment Request</header>
+                    <button class="btn btn-danger" style="margin-top:10px;">Browse File</button>
+                    <input type="file" asp-for="Upload" />
+                </div>
+                <div class="customload">
+                    <div class="loader">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="assets/img/2941039.png" class="uploadicon" type="button" alt="">
+
+            </div>*@
+                                        <div class="drag-area pb-4">
+                                            <div class="icon"><i class="fa fa-cloud-upload"></i></div>
+                                            <header>Duty Payment Request File to Upload</header>
+                                            <input class="btn btn-danger" style="margin-top:10px;" type="file" asp-for="Upload" value="Browse File" />
+                                        </div>
+                                        <div class="col-lg-4 text-center">
+                                            <img src="assets/img/2941039.png" class="uploadicon" type="button" alt="">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 text-center">
+                                        <input type="submit" />
+                                    </div>
+
+</form>
+
+                        </div>
+
+                    </div>
+                    <!-- END WIDGET -->
+                </div>
+                <table class="table table-condensed table-hover" style="width: 100%" id="manageusers">
+                    <tr>
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 15%;">File Name</th>
+                        <th style="width: 11%;">Document</th>
+                        <th style="width: 20%;">Uploaded (Date/Time)</th>
+                        <th style="width: 15%;">Uploaded by</th>
+                        <th style="width: 15%;">DPR No</th>
+                        <th style="width: 11%;" class="text-center">BOE Records</th>
+                        <th style="width: 13%;">Status</th>
+                        @*<th></th>
+            <th>Id</th>
+            <th>Dprno</th>
+            <th>FileName</th>
+            <th>UploadedDate</th>
+            <th>UploadedBy</th>
+            <th>DocumentReference</th>
+            <th>Status</th>*@
+                    </tr>
+                    @if (Model.dutyPaymentRequestHeaders != null)
+                    {
+                        @foreach (var item in Model.dutyPaymentRequestHeaders)
+                        {
+                            string selectedRow = "";
+                            //if (item.Id == Model.dutyPaymentRequestHeader.Id)
+                            //{
+                            //    selectedRow = "table-success";
+                            //}
+                            <tr class="@selectedRow">
+                                <td>
+                                    @item.Id
+                                </td>
+                                <td>
+                                    @item.FileName
+                                </td>
+                                <td class="b-r b-dashed b-grey w-25">
+                                    <a href="@item.Download" target="_blank"><img class="img-responsive" src="assets/img/xlsx.png" width="40" height="30"></a>
+                                </td>
+
+
+                                <td class="b-r b-dashed b-grey w-25">
+                                    @item.UploadedDate
+                                </td>
+                                <td class="b-r b-dashed b-grey w-25">
+                                    @item.UploadedBy
+                                </td>
+                                <td class="b-r b-dashed b-grey w-25">
+                                    @item.Dprno
+                                </td>
+                                <td class="b-r b-dashed b-grey w-25">
+                                    @item.DocumentReference
+                                </td>
+                                @if (@item.Status == "Accepted  ")
+                                {
+                                    <td class="b-r b-dashed b-grey w-25">
+                                        <span class="text-complete">@item.Status</span>&nbsp;&nbsp;
+                                        <a href="javascript:void(0);" onclick="deletedutypayment(@item.Id)" class="text-danger"><span class="fa fa-trash"></span></a>
+                                    </td>
+                                }
+                                @if (@item.Status == "Rejected  ")
+                                {
+                                    <td class="b-r b-dashed b-grey w-25">
+                                        <span class="text-danger">@item.Status</span>
+                                    </td>
+                                }
+
+                            </tr>
+                        }
+                    }
+                    </table>
+                <select name="filelist"  style="visibility:hidden">  
+                    </select>
+            </div>
+
+            
+            <!-- START ROW -->
+            <!-- START ROW -->
+        </div>
+        <!-- END CONTAINER FLUID -->
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- END PAGE CONTENT -->
+    <!-- START COPYRIGHT -->
+    <!-- START CONTAINER FLUID -->
+    <!-- START CONTAINER FLUID -->
+    <div class=" container   container-fixed-lg footer">
+        <div class="copyright sm-text-center">
+            <p class="small no-margin pull-left sm-pull-reset">
+                <span class="hint-text">Copyright Reserved © 2020-2025. </span>
+
+            </p>
+            <p class="small no-margin pull-right sm-pull-reset">
+                Developed by <span class="hint-text">Zealoit Technologies</span>
+            </p>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- END COPYRIGHT -->
+</div>

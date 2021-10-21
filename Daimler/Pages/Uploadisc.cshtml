@@ -1,0 +1,729 @@
+﻿@page
+@model Daimler.Pages.UploadiscModel
+@{
+    ViewData["Title"] = "Customs Portal - Upload ISC";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+    <script type="text/javascript">
+        debugger;
+        window.onload = function () {
+            removeClass()
+        }
+        function removeClass() {
+            document.getElementById("Dashboard").classList.remove("active");
+            document.getElementById("duty_payment_request").classList.remove("active");
+            document.getElementById("uploadisc").classList.add("active");
+            document.getElementById("uploadidt").classList.remove("active");
+            document.getElementById("archive_records").classList.remove("active");
+        }
+    </script>
+<div class="page-container ">
+    <!-- START PAGE CONTENT WRAPPER -->
+    <div class="page-content-wrapper ">
+        <!-- START PAGE CONTENT -->
+        <div class="content sm-gutter">
+            <!-- START BREADCRUMBS -->
+            <div class="bg-white">
+                <div class="container">
+                    <ol class="breadcrumb breadcrumb-alt">
+                        <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item active">Manage ISC</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- END BREADCRUMBS -->
+            <!-- START CONTAINER FLUID -->
+
+            <div class="container sm-padding-10 p-t-20 p-l-0 p-r-0 customdashboard">
+
+                <div class="row p-l-20">
+
+
+                    <div class="col-lg-3">
+                        <div class="card no-border widget-loader-bar m-b-10">
+                            <div class="container-xs-height full-height">
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="card-header  top-left top-right">
+                                            <div class="card-title">
+                                                <span class="font-montserrat fs-11 all-caps">
+                                                    Duty Payment Request Total <i class="fa fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                            <div class="card-controls">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                                            <h3 class="no-margin p-b-5 f-s-50  text-info">@Model.iSCDashboard.Dutypaymentrequesttotal</h3>
+                                            <span class="small hint-text pull-left">Total</span>
+                                            <!-- <span class="pull-right small text-danger">$23,000</span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-bottom">
+                                        <div class="progress progress-small m-b-0">
+                                            <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                            <div class="progress-bar progress-bar-info" style="width:15%"></div>
+                                            <!-- END BOOTSTRAP PROGRESS -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card no-border widget-loader-bar m-b-10">
+                            <div class="container-xs-height full-height">
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="card-header  top-left top-right">
+                                            <div class="card-title">
+                                                <span class="font-montserrat fs-11 all-caps">
+                                                    BOE Records <i class="fa fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                            <div class="card-controls">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                                            <h3 class="no-margin p-b-5 f-s-50  text-info">@Model.iSCDashboard.boeRecords</h3>
+                                            <span class="small hint-text pull-left">Total</span>
+                                            <!-- <span class="pull-right small text-danger">$23,000</span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-bottom">
+                                        <div class="progress progress-small m-b-0">
+                                            <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                            <div class="progress-bar progress-bar-info" style="width:15%"></div>
+                                            <!-- END BOOTSTRAP PROGRESS -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card no-border widget-loader-bar m-b-10">
+                            <div class="container-xs-height full-height">
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="card-header  top-left top-right">
+                                            <div class="card-title">
+                                                <span class="font-montserrat fs-11 all-caps">
+                                                    ISC Records <i class="fa fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                            <div class="card-controls">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                                            <h3 class="no-margin p-b-5 text-success f-s-50">@Model.iSCDashboard.iscRecords</h3>
+                                            <span class="small hint-text pull-left">Total</span>
+                                            <!-- <span class="pull-right small text-success">$23,000</span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-bottom">
+                                        <div class="progress progress-small m-b-0">
+                                            <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                            <div class="progress-bar progress-bar-success" style="width:15%"></div>
+                                            <!-- END BOOTSTRAP PROGRESS -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card no-border widget-loader-bar m-b-10">
+                            <div class="container-xs-height full-height">
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="card-header  top-left top-right">
+                                            <div class="card-title">
+                                                <span class="font-montserrat fs-11 all-caps">
+                                                    ISC Pending <i class="fa fa-chevron-right"></i>
+                                                </span>
+                                            </div>
+                                            <div class="card-controls">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="portlet-refresh text-black" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-top">
+                                        <div class="p-l-20 p-t-50 p-b-40 p-r-20">
+                                            <h3 class="no-margin p-b-5  text-danger  f-s-50">@Model.iSCDashboard.iscPending</h3>
+                                            <span class="small hint-text pull-left">Total</span>
+                                            <!-- <span class="pull-right small text-danger">$23,000</span> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row-xs-height">
+                                    <div class="col-xs-height col-bottom">
+                                        <div class="progress progress-small m-b-0">
+                                            <!-- START BOOTSTRAP PROGRESS (http://getbootstrap.com/components/#progress) -->
+                                            <div class="progress-bar progress-bar-danger" style="width:15%"></div>
+                                            <!-- END BOOTSTRAP PROGRESS -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row p-l-20">
+                    <div class="col-md-6">
+                        <h3>ISC Records</h3>
+                    </div>
+                    <div class="col-md-6 text-right m-t-15 ">
+                        &nbsp;
+                    </div>
+
+
+
+                    <div class="col-lg-12 sm-m-t-10 d-flex ">
+
+
+                        <!-- START WIDGET widget_pendingComments.tpl-->
+                        <div class="widget-11-2 card no-border card-condensed no-margin widget-loader-circle d-flex flex-column align-self-stretch">
+
+
+
+
+                            <div class="card-header top-right">
+                                <div class="card-controls">
+                                    <ul>
+                                        <li>
+                                            <a data-toggle="refresh" class="portlet-refresh text-black" href="#">
+                                                <i class="portlet-icon portlet-icon-refresh"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <!-- Filename, filetype, when uploaded (Date time) who uploaded, status, remarks -->
+
+                            <br>
+
+
+                            <table class="table table-condensed table-hover" style="width: 100%" id="manageusers">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 5%;">#</th>
+                                        <th style="width: 10%;">DPR Number</th>
+                                        <th style="width: 10%;">DPR Date</th>
+                                        <th style="width: 15%;" class="text-center">Duty - DPR</th>
+                                        <th style="width: 15%;" class="text-center">Duty - ISC</th>
+                                        <th style="width: 15%;" class="text-center">BOE Records</th>
+                                        <th style="width: 10%;" class="text-center">ISC Records</th>
+
+                                        <th style="width: 10%;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(Model.isclist !=null)
+                                    { 
+                                    @foreach (var item in Model.isclist)
+                                    {
+                                        <tr>
+
+                                            <td class="b-r b-dashed b-grey w-25">@item.Id</td>
+                                            <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50">@item.Dprno</td>
+                                            <td class="b-r b-dashed b-grey w-25">
+                                                @item.DRPDate
+                                            </td>
+                                            <td class="b-r b-dashed b-grey w-25 text-center">
+                                                <a href="#" class="text-danger">@item.DutyDPR</a>
+                                            </td>
+                                            <td class="b-r b-dashed b-grey w-25 text-center">
+                                                <a href="#" class="text-danger">@item.DutyISC</a>
+                                            </td>
+
+                                            <td class="b-r b-dashed b-grey w-25 text-center">
+                                                <a href="#" class="text-danger">@item.BOERecords</a>
+                                            </td>
+
+                                            <td class="b-r b-dashed b-grey w-25 text-center">
+                                                <a href="#" class="text-danger">@item.ISCRecords</a>
+                                            </td>
+
+                                            <td class="b-r b-dashed b-grey w-25">
+                                                <!--<button class="btn btn-danger btn-xs m-t-10" onclick = "showBillFile()">Pending</button>-->
+                                                <a href="UploadIscList/@item.Id"> <button class="btn btn-complete btn-xs m-t-10">
+                                                                             <span id="<%= @item.Id %>" style="text-decoration: underline;cursor:pointer;" onclick="window.location.href = 'UploadIscList/'+@item.Id;"></span>
+                                                    @item.Status</button></a>
+                                            </td>
+
+                                           
+                                        </tr>
+
+                                    }
+                                    }
+                                        @*<tr>
+                <td class="b-r b-dashed b-grey w-25">2</td>
+                <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50">AIR (CHE)-131</td>
+                <td class="b-r b-dashed b-grey w-25">
+                    08-08-2021
+                </td>
+                <td class="b-r b-dashed b-grey w-25 text-center">
+                    <a href="#" class="text-danger">50,000</a>
+                </td>
+                <td class="b-r b-dashed b-grey w-25 text-center">
+                    <a href="#" class="text-danger">50,000</a>
+                </td>
+                <td class="b-r b-dashed b-grey w-25 text-center">
+                    <a href="#" class="text-danger">8</a>
+                </td>
+
+                <td class="b-r b-dashed b-grey w-25 text-center">
+                    <a href="#" class="text-danger">3</a>
+                </td>
+
+                <td class="b-r b-dashed b-grey w-25">
+                    <button class="btn btn-danger btn-xs m-t-10" onclick = "showBillFile()">Pending</button>
+                    <a href="uploadisc_list.html"> <button class="btn btn-complete btn-xs m-t-10">Pending</button></a>
+                </td>
+
+
+
+            </tr>
+
+
+            <tr>
+                <td class="b-r b-dashed b-grey w-25">3</td>
+                <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50">SEA (ICD) 092</td>
+                <td class="b-r b-dashed b-grey w-25">
+                    09-08-2021
+                </td>
+                <td class="b-r b-dashed b-grey w-25 text-center">
+                    <a href="#" class="text-danger">50,000</a>
+                </td>
+                <td class="b-r b-dashed b-grey w-25 text-center">
+                    <a href="#" class="text-danger">50,000</a>
+                </td>
+                <td class="b-r b-dashed b-grey w-25 text-center">
+                    <a href="#" class="text-danger">10</a>
+                </td>
+
+                <td class="b-r b-dashed b-grey w-25 text-center">
+                    <a href="#" class="text-danger">5</a>
+                </td>
+
+                <td class="b-r b-dashed b-grey w-25">
+                    <button class="btn btn-danger btn-xs m-t-10" onclick = "showBillFile()">Pending</button>
+                    <a href="uploadisc_list.html"> <button class="btn btn-complete btn-xs m-t-10">Pending</button></a>
+                </td>
+
+
+
+            </tr>*@
+
+                                    </tbody>
+                            </table>
+
+
+
+                            <br>
+                            <br>
+                            <br>
+
+                        </div>
+                        <!-- END WIDGET -->
+                    </div>
+                </div>
+                <!-- START ROW -->
+                <!-- START ROW -->
+            </div>
+            <!-- END CONTAINER FLUID -->
+        </div>
+        <br>
+        <br>
+        <br>
+        <!-- END PAGE CONTENT -->
+        <!-- START COPYRIGHT -->
+        <!-- START CONTAINER FLUID -->
+        <!-- START CONTAINER FLUID -->
+        <div class=" container   container-fixed-lg footer">
+            <div class="copyright sm-text-center">
+                <p class="small no-margin pull-left sm-pull-reset">
+                    <span class="hint-text">Copyright Reserved © 2020-2025. </span>
+
+                </p>
+                <p class="small no-margin pull-right sm-pull-reset">
+                    Developed by <span class="hint-text">Zealoit Technologies</span>
+                </p>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- END COPYRIGHT -->
+    </div>
+    <!-- END PAGE CONTENT WRAPPER -->
+</div>
+<!-- END PAGE CONTAINER -->
+<!-- START OVERLAY -->
+<div class="overlay hide" data-pages="search">
+    <!-- BEGIN Overlay Content !-->
+    <div class="overlay-content has-results m-t-20">
+        <!-- BEGIN Overlay Header !-->
+        <div class="container-fluid">
+            <!-- BEGIN Overlay Logo !-->
+            <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+            <!-- END Overlay Logo !-->
+            <!-- BEGIN Overlay Close !-->
+            <a href="#" class="close-icon-light overlay-close text-black fs-16">
+                <i class="pg-close"></i>
+            </a>
+            <!-- END Overlay Close !-->
+        </div>
+        <!-- END Overlay Header !-->
+        <div class="container-fluid">
+            <!-- BEGIN Overlay Controls !-->
+            <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
+            <br>
+            <div class="inline-block">
+                <div class="checkbox right">
+                    <input id="checkboxn" type="checkbox" value="1" checked="checked">
+                    <label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
+                </div>
+            </div>
+            <div class="inline-block m-l-10">
+                <p class="fs-13">Press enter to search</p>
+            </div>
+            <!-- END Overlay Controls !-->
+        </div>
+        <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
+        <div class="container-fluid">
+            <span>
+                <strong>suggestions :</strong>
+            </span>
+            <span id="overlay-suggestions"></span>
+            <br>
+            <div class="search-results m-t-40">
+                <p class="bold">Pages Search Results</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div>
+                                    <img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on pages</h5>
+                                <p class="hint-text">via john smith</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div>T</div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> related topics</h5>
+                                <p class="hint-text">via pages</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                                <div>
+                                    <i class="fa fa-headphones large-text "></i>
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> music</h5>
+                                <p class="hint-text">via pagesmix</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                    </div>
+                    <div class="col-md-6">
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
+                                <div>
+                                    <i class="fa fa-facebook large-text "></i>
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on facebook</h5>
+                                <p class="hint-text">via facebook</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
+                                <div>
+                                    <i class="fa fa-twitter large-text "></i>
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
+                                <p class="hint-text">via twitter</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                        <!-- BEGIN Search Result Item !-->
+                        <div class="">
+                            <!-- BEGIN Search Result Item Thumbnail !-->
+                            <div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
+                                <div>
+                                    <i class="fa fa-google-plus large-text "></i>
+                                </div>
+                            </div>
+                            <!-- END Search Result Item Thumbnail !-->
+                            <div class="p-l-10 inline p-t-5">
+                                <h5 class="m-b-5">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
+                                <p class="hint-text">via google plus</p>
+                            </div>
+                        </div>
+                        <!-- END Search Result Item !-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Overlay Search Results !-->
+    </div>
+    <!-- END Overlay Content !-->
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="errorlog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Error Logs</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="errors">
+                    <p>Please upload only excel file and no other file formats are allowed.</p>
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div class="modal " id="bill_list">
+    <div class="modal-dialog modal-dialog-centered " style="min-width:1150px !important;">
+        <div class="modal-content ">
+
+            <!-- Modal Header -->
+            <div class="modal-header ">
+                <h4 class="modal-title">BOE Records</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body ">
+                <div class="errors auto-overflowss ">
+
+                    <div class="auto-overflow widget-11-2-table">
+
+                        <table class="table table-condensed table-hover" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;">#</th>
+                                    <th style="width: 10%;">Duty Value</th>
+                                    <th style="width: 10%;">Ref No.</th>
+                                    <th style="width: 10%;">Invoice No.</th>
+                                    <th style="width: 10%;">BOE No.</th>
+                                    <th style="width: 5%;">Port Code</th>
+                                    <th style="width: 10%;">BOE DUTY</th>
+                                    <th style="width: 10%;">Fine</th>
+                                    <th style="width: 10%;">Penalty</th>
+                                    <th style="width: 10%;">Interest</th>
+                                    <th style="width: 10%;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <tr>
+                                    <td class="b-r b-dashed b-grey w-25">1</td>
+                                    <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50"> 4,448,600</td>
+                                    <td class="b-r b-dashed b-grey w-25">SMP 21-22 0171</td>
+                                    <td class="b-r b-dashed b-grey w-25">N01014</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-danger ">1234567</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-center">INILP6</td>
+
+
+                                    <!--<td class="b-r b-dashed b-grey w-25 text-center">
+                                        <a href="#"  class = "" onclick = "showBillFile()" >INILP6</a>
+                                    </td> -->
+
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">4,448,443</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">157</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><button class="btn btn-danger btn-xs m-t-10" type="file">Upload</button></td>
+
+                                </tr>
+                                <tr>
+                                    <td class="b-r b-dashed b-grey w-25">2</td>
+                                    <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50"> 4,448,600</td>
+                                    <td class="b-r b-dashed b-grey w-25">SMP 21-22 0171</td>
+                                    <td class="b-r b-dashed b-grey w-25">N01014</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-danger ">1234568</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-center">INILP6</td>
+
+
+                                    <!--<td class="b-r b-dashed b-grey w-25 text-center">
+                                        <a href="#"  class = "" onclick = "showBillFile()" >INILP6</a>
+                                    </td> -->
+
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">4,448,443</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">157</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><button class="btn btn-danger btn-xs m-t-10" type="file">Upload</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="b-r b-dashed b-grey w-25">3</td>
+                                    <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50"> 4,448,600</td>
+                                    <td class="b-r b-dashed b-grey w-25">SMP 21-22 0171</td>
+                                    <td class="b-r b-dashed b-grey w-25">N01014</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-danger ">1234569</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-center">INILP6</td>
+
+
+                                    <!--<td class="b-r b-dashed b-grey w-25 text-center">
+                                        <a href="#"  class = "" onclick = "showBillFile()" >INILP6</a>
+                                    </td> -->
+
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">4,448,443</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">157</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><button class="btn btn-danger btn-xs m-t-10" type="file">Upload</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="b-r b-dashed b-grey w-25">4</td>
+                                    <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50"> 4,448,600</td>
+                                    <td class="b-r b-dashed b-grey w-25">SMP 21-22 0171</td>
+                                    <td class="b-r b-dashed b-grey w-25">N01014</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-danger ">1234570</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-center">INILP6</td>
+
+
+                                    <!--<td class="b-r b-dashed b-grey w-25 text-center">
+                                        <a href="#"  class = "" onclick = "showBillFile()" >INILP6</a>
+                                    </td> -->
+
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">4,448,443</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">157</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><button class="btn btn-danger btn-xs m-t-10" type="file">Upload</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="b-r b-dashed b-grey w-25">5</td>
+                                    <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50"> 4,448,600</td>
+                                    <td class="b-r b-dashed b-grey w-25">SMP 21-22 0171</td>
+                                    <td class="b-r b-dashed b-grey w-25">N01014</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-danger ">1234571</td>
+                                    <td class="b-r b-dashed b-grey w-25 text-center">INILP6</td>
+
+
+                                    <!--<td class="b-r b-dashed b-grey w-25 text-center">
+                                        <a href="#"  class = "" onclick = "showBillFile()" >INILP6</a>
+                                    </td> -->
+
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">4,448,443</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><span class="">157</span></td>
+                                    <td class="b-r b-dashed b-grey w-25"><button class="btn btn-danger btn-xs m-t-10" type="file">Upload</button></td>
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
