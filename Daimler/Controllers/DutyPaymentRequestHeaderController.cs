@@ -315,7 +315,8 @@ namespace Daimler.Controllers
                           (SELECT Count(ISCdetail.ID) FROM DutyPaymentRequestDetail as ISCdetail 
                           WHERE ISNULL(ISC_Excel_AttachmentID,0)!=0 AND ISCdetail.HeaderID=DutyPaymentRequestHeader.ID) AS ISCrocrds, 
 
-                          (SELECT Count(IDTdetail.ID) FROM CHADTDetail as IDTdetail where IDTdetail.BOEID=DutyPaymentRequestHeader.ID) AS IDTrocrds  
+                          (SELECT Count(IDTdetail.ID) FROM DutyPaymentRequestDetail as IDTdetail 
+						  WHERE ISNULL(IDT_Excel_AttachmentID,0)!=0 AND IDTdetail.HeaderID=DutyPaymentRequestHeader.ID) AS IDTrocrds  
 
                           FROM DutyPaymentRequestDetail  
                           JOIN DutyPaymentRequestHeader on DutyPaymentRequestHeader.ID=DutyPaymentRequestDetail.HeaderID 

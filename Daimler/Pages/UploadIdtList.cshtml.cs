@@ -83,6 +83,7 @@ namespace Daimler.Pages
                             dutyPaymentdetails.IdtExcelAttachmentId = attachmentId.ToString();
                             _context.DutyPaymentRequestDetail.Update(dutyPaymentdetails);
                             _context.SaveChanges();
+                            updateAttachmentid(result, attachmentId);
                         }
                     }
                     
@@ -137,6 +138,7 @@ namespace Daimler.Pages
                                 dutyPaymentdetails.IdtExcelAttachmentId = attachmentId.ToString();
                                 _context.DutyPaymentRequestDetail.Update(dutyPaymentdetails);
                                 _context.SaveChanges();
+                                updateAttachmentid(result, attachmentId);
                             }
                         }
                         
@@ -148,7 +150,29 @@ namespace Daimler.Pages
             OnGet(id);
         }
 
+        private bool updateAttachmentid(List<Chadtdetail> Chadtdetails,int attachmentID)
+        {
+            try
+            {
+                DaimlerContext _context = new DaimlerContext();
+                foreach (var Chadtdetail in Chadtdetails)
+                {
+                    var ChadtdetailRecord = _context.Chadtdetails.Find(Chadtdetail.Id);
+                    ChadtdetailRecord.AttachmentID = attachmentID;
+                    _context.Chadtdetails.Update(ChadtdetailRecord);
+                    _context.SaveChanges();
 
+                }
+                
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         private int CreateAttachment(string file, string fileextension, DaimlerContext _context, string boeNo)
         {
             var attachmentFileList = new AttachmentFileListController(_context);
@@ -193,32 +217,36 @@ namespace Daimler.Pages
 
         }
 
-        public void OnGetDetele(string id, string iscid, string filename)
+        public void OnGetDelete(string id, string iscid, string attachmentID)
         {
             DaimlerContext _context = new DaimlerContext();
             var attachment = new AttachmentFileListController(_context);
             var isccontroller = new DutyPaymentRequestDetailController(_context);
             var cHAIDTDetailController = new CHADTDetailController(_context);
-            var dutyPaymentRequestDetail = _context.DutyPaymentRequestDetail.FirstOrDefault(x => x.Id == Convert.ToInt32(iscid));
-            if (filename == ".xlsx")
+
+           
+            if (attachmentID != null)
             {
-                dutyPaymentRequestDetail.IscExcelAttachmentId = null;
-                var chaidtdetail = _context.Chadtdetails.Where(x => x.Boeid == dutyPaymentRequestDetail.HeaderId && x.Beno== "INMAA41345678");
+                var chaidtdetail = _context.Chadtdetails.Where(x => x.AttachmentID == Convert.ToInt32(attachmentID));
                 foreach (var item in chaidtdetail)
                 {
                     cHAIDTDetailController.DeleteConfirmed(item.Id);
                 }
 
             }
-            if (filename == ".pdf")
+
+            var dutyPaymentRequestDetail = _context.DutyPaymentRequestDetail.FirstOrDefault(x => x.Id == Convert.ToInt32(iscid));
+            if (attachmentID != null)
             {
-                dutyPaymentRequestDetail.IscPdfAttachmentId = null;
+                dutyPaymentRequestDetail.IdtExcelAttachmentId = null;
             }
             isccontroller.Edit(dutyPaymentRequestDetail.Id, dutyPaymentRequestDetail);
 
-            var attachmentFileList = _context.AttachmentFileLists.FirstOrDefault(x => x.SourceId == iscid && x.FileName == filename && x.Type == "IDT");
+            _context = new DaimlerContext();
 
+            var attachmentFileList = _context.AttachmentFileLists.FirstOrDefault(x => x.Id == Convert.ToInt32(attachmentID));
             attachment.DeleteConfirmed(attachmentFileList.Id);
+
             OnGet(id);
         }
     }

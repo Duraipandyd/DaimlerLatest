@@ -221,6 +221,7 @@ namespace Daimler.Controllers
 
         public class AttachmentDetails
         {
+            public int ID { get; set; }
             public string FileName { get; set; }
             public string FileLocation { get; set; }
         }
@@ -321,122 +322,7 @@ namespace Daimler.Controllers
             idtDashboarddto.boeRecordsDetails4IDT = Idtlist;
 
             return idtDashboarddto;
-            //var recordsList4ISC = new BOERecordsList4IDT();
-            //var BOERecordsDetails4ISC = new List<BOERecordsDetails4IDT>();
-            //var boeRecordCount = 0;
-            //var iscRecordCount = 0;
-            //var idtRecordCount = 0;
-
-            //recordsList4ISC = (from DutyPaymentRequestHeader in _context.DutyPaymentRequestHeaders
-            //                   where DutyPaymentRequestHeader.Id == id
-
-            //                   select new BOERecordsList4IDT
-            //                   {
-            //                       Id = DutyPaymentRequestHeader.Id,
-            //                       Dprno = DutyPaymentRequestHeader.Dprno,
-            //                       DRPDate = DutyPaymentRequestHeader.UploadedDate
-            //                   }
-            //                 ).Distinct().FirstOrDefault();
-
-            //var RecordDetailsList = (from DutyPaymentRequestDetail in _context.DutyPaymentRequestDetail
-            //                         where DutyPaymentRequestDetail.HeaderId == id
-
-            //                         select new BOERecordsDetails4IDT
-            //                         {
-            //                             Id = DutyPaymentRequestDetail.Id,
-            //                             BoeNo = DutyPaymentRequestDetail.Boeno,
-            //                             BoeDuty = DutyPaymentRequestDetail.Boeduty,
-            //                             DutyValue = DutyPaymentRequestDetail.DutyValue,
-            //                             Fine = DutyPaymentRequestDetail.Fine,
-            //                             Interest = DutyPaymentRequestDetail.Interest,
-            //                             InvoiceNo = DutyPaymentRequestDetail.InvoiceNo,
-            //                             Penalty = DutyPaymentRequestDetail.Penalty,
-            //                             PortCode = DutyPaymentRequestDetail.PortCode,
-            //                             RefNo = DutyPaymentRequestDetail.RefNo,
-            //                             BOERecordsAttachmentPathID = DutyPaymentRequestDetail.IscPdfAttachmentId,
-            //                             IDTRecordsAttachmentPathID = DutyPaymentRequestDetail.IdtExcelAttachmentId,
-            //                             ISCRecordsAttachmentPathID = DutyPaymentRequestDetail.IscExcelAttachmentId
-
-            //                         }
-            //                     ).ToList();
-
-            //foreach (var details4ISC in RecordDetailsList)
-            //{
-            //    if (CommonFunction.NullToIntZero(details4ISC.BOERecordsAttachmentPathID) != 0)
-            //    {
-            //        var attachment = (from AttachmentFileList in _context.AttachmentFileLists
-            //                          where AttachmentFileList.Id == details4ISC.BOERecordsAttachmentPathID
-
-            //                          select new AttachmentDetails
-            //                          {
-            //                              FileLocation = AttachmentFileList.FileLocation,
-            //                              FileName = AttachmentFileList.FileName
-            //                          }).FirstOrDefault();
-            //        details4ISC.BOERecordsAttachmentPath = "/assets/uploads/" + attachment.FileName;
-            //        boeRecordCount += 1;
-            //    }
-
-            //    if (CommonFunction.NullToIntZero(details4ISC.ISCRecordsAttachmentPathID) != 0)
-            //    {
-            //        var attachment = (from AttachmentFileList in _context.AttachmentFileLists
-            //                          where AttachmentFileList.Id == details4ISC.ISCRecordsAttachmentPathID
-
-            //                          select new AttachmentDetails
-            //                          {
-            //                              FileLocation = AttachmentFileList.FileLocation,
-            //                              FileName = AttachmentFileList.FileName
-            //                          }).FirstOrDefault();
-            //        details4ISC.ISCRecordsAttachmentPath = "/assets/uploads/" + attachment.FileName;
-            //        iscRecordCount += 1;
-            //    }
-
-            //    if (CommonFunction.NullToIntZero(details4ISC.IDTRecordsAttachmentPathID) != 0)
-            //    {
-            //        var attachId = CommonFunction.NullToIntZero(details4ISC.IDTRecordsAttachmentPathID);
-            //        var attachment = (from AttachmentFileList in _context.AttachmentFileLists
-            //                          where AttachmentFileList.Id == attachId
-
-            //                          select new AttachmentDetails
-            //                          {
-            //                              FileLocation = AttachmentFileList.FileLocation,
-            //                              FileName = AttachmentFileList.FileName
-            //                          }).FirstOrDefault();
-            //        details4ISC.IDTRecordsAttachmentPath = "/assets/uploads/" + attachment.FileName;
-            //        idtRecordCount += 1;
-            //    }
-            //}
-
-            //var IscDetailsList = (from CHAISCDetail in _context.Chaiscdetails
-            //                      join DutyPaymentRequestDetail in _context.DutyPaymentRequestDetail
-            //             on CHAISCDetail.Beno equals DutyPaymentRequestDetail.Boeno
-            //                      where DutyPaymentRequestDetail.HeaderId == id
-
-            //                      select new BOERecordsDetails4IDT
-            //                      {
-
-            //                          DutyValue = CHAISCDetail.TotalDuty
-            //                      }
-            //                     ).ToList();
-
-            //var IDtDetailsList = (from CHAISCDetail in _context.Chadtdetails
-            //                      join DutyPaymentRequestDetail in _context.DutyPaymentRequestDetail
-            //             on CHAISCDetail.Beno equals DutyPaymentRequestDetail.Boeno
-            //                      where DutyPaymentRequestDetail.HeaderId == id
-
-            //                      select new BOERecordsDetails4IDT
-            //                      {
-
-            //                          DutyValue = CHAISCDetail.TotalDuty
-            //                      }
-            //                     ).ToList();
-
-            //recordsList4ISC.BOERecords = boeRecordCount;
-            //recordsList4ISC.ISCRecords = iscRecordCount;
-            //recordsList4ISC.DutyDPR = RecordDetailsList.Sum(a => a.DutyValue);
-            //recordsList4ISC.DutyISC = IDtDetailsList.Sum(a => a.DutyValue);
-            //recordsList4ISC.boeRecordsDetails4IDT = RecordDetailsList;
-            //return recordsList4ISC;
-
+            
         }
 
         public List<AttachmentDetails> GetAttachmentDetails(int detailID)
@@ -446,9 +332,9 @@ namespace Daimler.Controllers
             List<AttachmentDetails> attachmentDetaillist = new List<AttachmentDetails>();
             try
             {
-                var SQL = @"Select FileName from AttachmentFileList
+                var SQL = @"Select FileName,AttachmentFileList.ID AS ID from AttachmentFileList
                             Join DutyPaymentRequestDetail ON DutyPaymentRequestDetail.ID =AttachmentFileList.SourceID
-                            where Type='IDT' and AttachmentFileList.SourceID="+ detailID;
+                            where Type='IDT' and AttachmentFileList.SourceID=" + detailID;
                 var attachmentDetails = commonfunction.ExecuteSelectSQL(SQL);
 
                 if (attachmentDetails == null) return attachmentDetaillist;
@@ -457,6 +343,7 @@ namespace Daimler.Controllers
                 {
                     var attachmentdetail = new AttachmentDetails();
                     attachmentdetail.FileName = "/assets/uploads/" + CommonFunction.NullToEmpty(attachmentitem["FileName"]);
+                    attachmentdetail.ID = CommonFunction.NullToIntZero(attachmentitem["ID"]);
                     attachmentDetaillist.Add(attachmentdetail);
                 }
 

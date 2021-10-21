@@ -159,19 +159,24 @@
                 }
             });
         }
-
-        function deleteIDT(iscid,filename)
+    </script>
+    <script type="text/javascript">
+        function deleteIDT (iscid,attachmentID)
                 {
                     debugger;
                     if (confirm("Are you sure you want to delete ...?")) {
+                        //var data = JSON.stringify({
+                        //    'iscid': iscid,
+                        //    'type': type
+                        //});
             $.ajax({
                             type: 'GET',
                             datatype: "json",
                             traditional: true,
-                data: { 'iscid': iscid, 'filename': filename },
-            url: '@Url.Page("UploadIdtList", "detele", null)',
+                data: { 'iscid': iscid, 'attachmentID': attachmentID },
+            url: '@Url.Page("UploadIdtList", "delete", null)',
             success: function (result) {
-                alert("Delete  ISC Ecel file !");
+                alert("Deleted IDT Excel file !");
                 location.reload();
                 oTable = $('#manageusers').DataTable();
                 oTable.draw();
@@ -329,7 +334,7 @@
                                                                 @foreach (var attachmentitem in @item.IDTExcelAttachmentDetails)
                                                                 {
                                                                     <div class="img-wraps">
-                                                                        <a href="javascript:void(0);" onclick="deleteIDT(@item.Id,@attachmentitem.FileName)" type="button"><span class="closes" title="Delete">×</span></a>
+                                                                        <a href="javascript:void(0);" onclick="deleteIDT(@item.Id,@attachmentitem.ID)" type="button"><span class="closes" title="Delete">×</span></a>
                                                                         <a href="@attachmentitem.FileName" target="_blank"><img class="img-responsive" src="/assets/img/xlsx.png" width="40" height="30"></a>
                                                                     </div>
                                                                 }
