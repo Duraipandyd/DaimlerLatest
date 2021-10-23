@@ -24,29 +24,41 @@ namespace Daimler.Controllers
                 var dutyPaymentRequestHeaderController = new DutyPaymentRequestHeaderController(_context);
                 dashboardCounts.DutyPaymentRequest = dutyPaymentRequestHeaderController.GetDutyPaymentRequestHeader().Count();
                  
-                dashboardCounts.ISC = dutyPaymentRequestHeaderController.GetISCRecords().ISClist.Count();
-                dashboardCounts.IDT = dutyPaymentRequestHeaderController.GetIDTRecords().Idtlist.Count();
-                dashboardCounts.DutyPaymentRequestInProgress = 0;
-                var ISCrecord = dutyPaymentRequestHeaderController.GetISCRecords();
-                if (ISCrecord != null)
+                 if (dutyPaymentRequestHeaderController.GetISCRecords().ISClist!=null)
                 {
-                    dashboardCounts.DutyPaymentRequestInProgress = dutyPaymentRequestHeaderController.GetISCRecords().ISClist.Count();
+                    dashboardCounts.ISC = dutyPaymentRequestHeaderController.GetISCRecords().ISClist.Count();
                 }
-                
-                dashboardCounts.DutyPaymentRequestComplete = dashboardCounts.DutyPaymentRequest - dashboardCounts.DutyPaymentRequestInProgress;
-                dashboardCounts.ISCComplete = dashboardCounts.IDT;
-                dashboardCounts.ISCInProgress = dashboardCounts.ISC - dashboardCounts.ISCComplete;
+                 else
+                {
+                    dashboardCounts.ISC = 0;
+                }
+
+                if (dutyPaymentRequestHeaderController.GetIDTRecords().Idtlist != null)
+                {
+                    dashboardCounts.IDT = dutyPaymentRequestHeaderController.GetIDTRecords().Idtlist.Count();
+                }
+                else
+                {
+                    dashboardCounts.IDT = 0;
+                }
 
                 var archiveController = new ArchiveRecordsController(_context);
                 dashboardCounts.IDTComplete = GetArchiveRecords().Count();
-                
-                dashboardCounts.IDTInprogress = dashboardCounts.IDT - dashboardCounts.IDTComplete;
-                return dashboardCounts;
-               
 
+                dashboardCounts.DutyPaymentRequestInProgress = dashboardCounts.IDT + dashboardCounts.ISC;                
+                dashboardCounts.DutyPaymentRequestComplete = dashboardCounts.IDTComplete;
+
+                dashboardCounts.ISCComplete = dashboardCounts.IDT+ dashboardCounts.IDTComplete;
+                dashboardCounts.ISCInProgress = dashboardCounts.ISC;
+                dashboardCounts.ISC = dashboardCounts.ISCComplete + dashboardCounts.ISCInProgress;
+                
+                dashboardCounts.IDTInprogress = dashboardCounts.IDT;
+                dashboardCounts.IDT = dashboardCounts.IDTInprogress + dashboardCounts.IDTComplete;
+
+                return dashboardCounts;
 
             }
-            catch (Exception)
+            catch (Exception )
             {
                 return dashboardCounts;
                
