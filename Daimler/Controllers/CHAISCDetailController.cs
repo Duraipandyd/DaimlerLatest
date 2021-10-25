@@ -189,8 +189,7 @@ namespace Daimler.Controllers
             public decimal? DutyDPR { get; set; }
             public decimal? DutyISC { get; set; }
             public int BOERecords { get; set; }
-            public int ISCRecords { get; set; }
-           
+            public int ISCRecords { get; set; }   
             public List<BOERecordsDetails4ISC> boeRecordsDetails4ISC { get; set; }
 
         }
@@ -214,6 +213,8 @@ namespace Daimler.Controllers
 
             public decimal? SocialWelfareSurchargeAmountCustoms { get; set; }
             public decimal? IGSTAmt { get; set; }
+
+            public decimal? ISCDutyValues { get; set; }
 
         }
 
@@ -295,6 +296,22 @@ namespace Daimler.Controllers
                     details4ISC.ISCRecordsAttachmentPath = "/assets/uploads/" + attachment.FileName;
                     iscRecordCount += 1;
                 }
+
+                var ISCDutyValue = (from Chaiscdetails in _context.Chaiscdetails
+                               where Chaiscdetails.Boeid == id && Chaiscdetails.Beno== details4ISC.BoeNo
+
+                                    select new BOERecordsDetails4ISC
+                               {
+                                   DutyValue = Chaiscdetails.BasicDuty,
+                                   SocialWelfareSurchargeAmountCustoms = CommonFunction.NullToDecimalZero(Chaiscdetails.SocialWelfareSurchargeAmountCustoms),
+                                   IGSTAmt = CommonFunction.NullToDecimalZero(Chaiscdetails.Igstamount),
+                               }
+                                 ).ToList();
+
+                details4ISC.ISCDutyValues = CommonFunction.NullToDecimalZero(ISCDutyValue.Sum(a => a.DutyValue) 
+                    + ISCDutyValue.Sum(a => a.SocialWelfareSurchargeAmountCustoms) + ISCDutyValue.Sum(a => a.IGSTAmt));
+                ;
+
             }
 
             var ISCDuty = (from Chaiscdetails in _context.Chaiscdetails
@@ -308,6 +325,7 @@ namespace Daimler.Controllers
                                      }
                                  ).ToList();
 
+            
             recordsList4ISC.boeRecordsDetails4ISC = RecordDetailsList;
             recordsList4ISC.BOERecords = RecordDetailsList.Count();
             recordsList4ISC.ISCRecords = iscRecordCount;

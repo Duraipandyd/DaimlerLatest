@@ -350,14 +350,14 @@
                                             <tr>
                                                 <th style="width: 9%;">#</th>
                                                 <th style="width: 9%;">BOE No.</th>
-                                                <th style="width: 9%;">BOE DUTY</th>
-                                                <th style="width: 9%;">Duty Value</th>
+                                                <th style="width: 11%;">BOE DUTY</th>
+                                                <th style="width: 11%;">ISC Duty Value</th>
                                                 <th style="width: 6%;">Ref No.</th>
                                                 <th style="width: 6%;">Invoice No.</th>
                                                 <th style="width: 9%;">Port Code</th>
-                                                <th style="width: 9%;">Fine</th>
-                                                <th style="width: 9%;">Penalty</th>
-                                                <th style="width: 9%;">Interest</th>
+                                                @*<th style="width: 9%;">Fine</th>*@
+                                                @*<th style="width: 9%;">Penalty</th>*@
+                                                @*<th style="width: 9%;">Interest</th>*@
                                                 <th style="width: 16%;">CHA-ISC</th>
                                                 <th style="width: 16%;">BOE</th>
                                             </tr>
@@ -373,10 +373,10 @@
                                                         <td class="b-r b-dashed b-grey w-25">@item.Id</td>
                                                         <td class="b-r b-dashed b-grey w-25 text-danger ">@item.BoeNo</td>
                                                         <td class="b-r b-dashed b-grey w-25"><span class="">@item.BoeDuty</span></td>
-                                                        <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50">@item.DutyValue</td>
-                                                        <td class="b-r b-dashed b-grey w-25">@item.Fine</td>
-                                                        <td class="b-r b-dashed b-grey w-25">@item.Penalty</td>
-                                                        <td class="b-r b-dashed b-grey w-25 text-center">@item.Interest</td>
+                                                        <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50">@item.ISCDutyValues</td>
+                                                        @*<td class="b-r b-dashed b-grey w-25">@item.Fine</td>*@
+                                                        @*<td class="b-r b-dashed b-grey w-25">@item.Penalty</td>*@
+                                                        @*<td class="b-r b-dashed b-grey w-25 text-center">@item.Interest</td>*@
                                                         <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
                                                         <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
                                                         <td class="b-r b-dashed b-grey w-25"><span class="">157</span></td>
@@ -742,9 +742,9 @@
                                         <th style="width: 10%;">BOE No.</th>
                                         <th style="width: 5%;">Port Code</th>
                                         <th style="width: 10%;">BOE DUTY</th>
-                                        <th style="width: 10%;">Fine</th>
-                                        <th style="width: 10%;">Penalty</th>
-                                        <th style="width: 10%;">Interest</th>
+                                        @*<th style="width: 10%;">Fine</th>*@
+                                        @*<th style="width: 10%;">Penalty</th>*@
+                                        @*<th style="width: 10%;">Interest</th>*@
                                         <th style="width: 10%;">Action</th>
                                     </tr>
                                 </thead>

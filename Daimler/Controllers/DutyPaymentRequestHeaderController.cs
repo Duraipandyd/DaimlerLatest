@@ -140,20 +140,28 @@ namespace Daimler.Controllers
             public string UploadedBy { get; set; }
             public string DocumentReference { get; set; }
             public string Status { get; set; }
+            public int BOERecord { get; set; }
         }
         [HttpGet]
         public IList<paymentlist> GetDutyPaymentRequestHeader()
         {
             var dutyPaymentRequestHeaders = (from DutyPaymentRequestHeader in _context.DutyPaymentRequestHeaders
-                                             join DutyPaymentRequestDetail in _context.Logins on DutyPaymentRequestHeader.UploadedBy equals DutyPaymentRequestDetail.Id
+                                             join Login in _context.Logins on DutyPaymentRequestHeader.UploadedBy equals Login.Id
+                                             //join DutyPaymentRequestDetail in _context.DutyPaymentRequestDetail 
+                                             //on DutyPaymentRequestHeader.Dprno equals DutyPaymentRequestDetail.RefNo
+                                             let totalCount =
+                      (from DutyPaymentRequestDetail in _context.DutyPaymentRequestDetail
+                       where DutyPaymentRequestDetail.HeaderId == DutyPaymentRequestHeader.Id
+                       select DutyPaymentRequestDetail
+                      ).Count() 
                                              select new paymentlist
                                              {
                                                  Id = DutyPaymentRequestHeader.Id,
                                                  Dprno = DutyPaymentRequestHeader.Dprno,
                                                  FileName = DutyPaymentRequestHeader.FileName,
                                                  UploadedDate = DutyPaymentRequestHeader.UploadedDate,
-                                                 //UploadedBy = DutyPaymentRequestHeader.UploadedBy,
-                                                 UploadedBy = DutyPaymentRequestDetail.Username,
+                                                 BOERecord = totalCount,
+                                                 UploadedBy = Login.Username,
                                                  DocumentReference = DutyPaymentRequestHeader.DocumentReference,
                                                  Status = DutyPaymentRequestHeader.Status,
                                                  Download = "assets/uploads/" + DutyPaymentRequestHeader.FileName

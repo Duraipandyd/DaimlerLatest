@@ -284,13 +284,13 @@
                                                 <th style="width: 9%;">#</th>
                                                 <th style="width: 9%;">BOE No.</th>
                                                 <th style="width: 10%;">BOE DUTY</th>
-                                                <th style="width: 11%;">Duty Value</th>
+                                                <th style="width: 11%;">IDT Duty Value</th>
                                                 @*<th class="none" style="width: 13%;">Ref No.</th>
                                                 <th class="none" style="width: 10%;">Invoice No.</th>
                                                 <th class="none" style="width: 10%;">Port Code</th>*@
-                                                <th style="width: 7%;">Fine</th>
+                                                @*<th style="width: 7%;">Fine</th>
                                                 <th style="width: 7%;">Penalty</th>
-                                                <th style="width: 7%;">Interest</th>
+                                                <th style="width: 7%;">Interest</th>*@
                                                 <th style="width: 9%;">CHA-ISC</th>
                                                 <th style="width: 7%;">BOE</th>
                                                 <th style="width: 20%;">CHA-IDT</th>
@@ -301,14 +301,15 @@
                                             {
                                                 @foreach (var item in Model.boeRecordsDetails4DT)
                                                 {
+
                                                     <tr>
                                                         <td class="b-r b-dashed b-grey w-25">@item.Id</td>
                                                         <td class="b-r b-dashed b-grey w-25 text-danger ">@item.BoeNo</td>
                                                         <td class="b-r b-dashed b-grey w-25"><span class="">@item.BoeDuty</span></td>
                                                         <td class="font-montserrat b-r b-dashed b-grey  all-caps fs-12 w-50">@item.DutyValue</td>
-                                                        <td class="b-r b-dashed b-grey w-25">@item.Fine</td>
+                                                        @*<td class="b-r b-dashed b-grey w-25">@item.Fine</td>
                                                         <td class="b-r b-dashed b-grey w-25">@item.Penalty</td>
-                                                        <td class="b-r b-dashed b-grey w-25 text-center">@item.Interest</td>
+                                                        <td class="b-r b-dashed b-grey w-25 text-center">@item.Interest</td>*@
                                                         @*<td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
                     <td class="b-r b-dashed b-grey w-25"><span class="">-</span></td>
                     <td class="b-r b-dashed b-grey w-25"><span class="">157</span></td>*@
